@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banquet.cs" />
+    <Compile Include="Data\IRepository.cs" />
     <Compile Include="Decoration.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="GuestGroup.cs" />
