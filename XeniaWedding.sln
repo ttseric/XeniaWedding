@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XeniaWedding.Core", "XeniaW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XeniaWedding.Core.Tests", "XeniaWedding.Core.Tests\XeniaWedding.Core.Tests.csproj", "{8C3B1D09-2280-47D4-A3AC-9C96DE57731B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XeniaWedding.Data", "XeniaWedding.Data\XeniaWedding.Data.csproj", "{149B3C8B-0464-427F-9FB2-01333651ACB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{F2F06188-583E-4A6D-BC3A-D0589011DD23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +23,16 @@ Global
 		{8C3B1D09-2280-47D4-A3AC-9C96DE57731B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C3B1D09-2280-47D4-A3AC-9C96DE57731B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C3B1D09-2280-47D4-A3AC-9C96DE57731B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149B3C8B-0464-427F-9FB2-01333651ACB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149B3C8B-0464-427F-9FB2-01333651ACB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149B3C8B-0464-427F-9FB2-01333651ACB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149B3C8B-0464-427F-9FB2-01333651ACB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF30C771-F14B-458C-8CD1-9B5F7CDD03D7} = {F2F06188-583E-4A6D-BC3A-D0589011DD23}
+		{149B3C8B-0464-427F-9FB2-01333651ACB4} = {F2F06188-583E-4A6D-BC3A-D0589011DD23}
 	EndGlobalSection
 EndGlobal
