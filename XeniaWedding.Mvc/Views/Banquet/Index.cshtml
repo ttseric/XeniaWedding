@@ -1,0 +1,505 @@
+﻿@model XeniaWedding.Mvc.Models.BanquetContractModel
+
+@{
+    ViewBag.Title = "Contract";
+}
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">晚宴</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">新菜單</a></li>
+                <li><a href="#">新賓客</a></li>
+                <li><a href="#">新提醒</a></li>
+                <li><a href="#">新物資</a></li>
+                <li><a href="#">新賬單</a></li>
+                <li><a href="#">新服務收費</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>場地資料</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-2">名稱</div>
+                <div class="col-xs-10"><strong>會所1號</strong></div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-2">電話</div>
+                <div class="col-xs-10"><strong>28694888</strong></div>
+            </div>            
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-2">地址</div>
+                <div class="col-xs-10"><strong>紅磡黃埔花園八期</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-3">聯絡人</div>
+                <div class="col-xs-9"><strong>Peter Chan</strong></div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-3">電郵</div>
+                <div class="col-xs-9"><strong>peterchan@weddingone.com</strong></div>
+            </div>            
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-3">宴會日期</div>
+                <div class="col-xs-9"><strong>2013-07-13</strong></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>菜單</h2>
+                        </div>
+                        <div class="col-xs-6" style="padding-top: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">新菜單</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 btn-toolbar" role="toolbar">
+                            <div class="btn-group btn-group-xs pull-left">
+                                <button class="btn btn-default">1</button>
+                                <button class="btn btn-default">2</button>
+                                <button class="btn btn-default">3</button>
+                                <button class="btn btn-default">4</button>
+                                <button class="btn btn-default">5</button>
+                                <button class="btn btn-default">6</button>
+                                <button class="btn btn-default">7</button>
+                                <button class="btn btn-default">8</button>
+                                <button class="btn btn-default">9</button>
+                                <button class="btn btn-default">10</button>
+                                <button class="btn btn-default">11</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul>
+                                <li>雲翔乳豬全體</li>
+                                <li>高湯焗龍蝦</li>
+                                <li>碧綠玉簪帶子</li>
+                                <li>砂窩濃湯雞煲翅(24兩)</li>
+                                <li>蠔皇原隻鮑魚海參</li>
+                                <li>金錢多子瑤柱脯</li>
+                                <li>清蒸東星斑</li>
+                                <li>當紅炸子雞</li>
+                                <li>金瑤海鮮炒飯</li>
+                                <li>鮑汁伊府麵</li>
+                                <li>百年好合</li>
+                                <li>永結同心</li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 text-right">
+                            <h3>每席 $5,500.00</h3>
+                        </div>
+                        <div class="col-xs-12">
+                            <dl>
+                                <dt>温韾提示</dt>
+                                <dd>此單 2013年6月30日前婚宴通用 如有問題可以致電 2635-3788 查詢</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12">
+                    <div class="row" style="margin-bottom: 10px; background-color: #faebd7; border-radius: 6px;">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h2>賓客名單</h2>
+                                </div>
+                                <div class="col-xs-6" style="padding-top: 10px;">
+                                    <button type="button" id="addGuest" class="btn btn-primary btn-lg btn-block">新賓客</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge pull-right">42</span>
+                                                邀請
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge pull-right">10</span>
+                                                出席
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="badge pull-right">21</span>
+                                                拒絕
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>提醒</h2>
+                        </div>
+                        <div class="col-xs-6" style="padding-top: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">新提醒</button>
+                        </div>
+                        <div class="col-xs-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>時間</td>
+                                        <td>事項</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第一次訂金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第二次訂金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第三次訂金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第四次訂金</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-12" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>物資表</h2>
+                        </div>
+                        <div class="col-xs-6" style="padding-top: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">新物資</button>
+                        </div>
+                        <div class="col-xs-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>時間</td>
+                                        <td>事項</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第一次訂金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第二次訂金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第三次訂金</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12 09:00:00</td>
+                                        <td>繳交第四次訂金</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-xs-8">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <h2>賬單</h2>
+                        </div>
+                        <div class="col-xs-4" style="padding-top: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">新賬單</button>
+                        </div>
+                        <div class="col-xs-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>日期</td>
+                                        <td>項目</td>
+                                        <td>備註</td>
+                                        <td>數量</td>
+                                        <td>單價</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2013-10-12</td>
+                                        <td>心心相印菜單</td>
+                                        <td>&nbsp;</td>
+                                        <td>30</td>
+                                        <td>5,900.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12</td>
+                                        <td>魔術表演</td>
+                                        <td>&nbsp;</td>
+                                        <td>1</td>
+                                        <td>3,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-11-20</td>
+                                        <td>琴師</td>
+                                        <td>&nbsp;</td>
+                                        <td>1</td>
+                                        <td>3,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-05-01</td>
+                                        <td>裝飾</td>
+                                        <td>&nbsp;</td>
+                                        <td>1</td>
+                                        <td>3,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2013-10-12</td>
+                                        <td>更換椅套</td>
+                                        <td>紫色</td>
+                                        <td>1</td>
+                                        <td>3,000.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>服務收費表</h2>
+                        </div>
+                        <div class="col-xs-6" style="padding-top: 10px;">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">新提醒</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>項目</td>
+                                        <td>收費</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>最低消費</td>
+                                        <td>380,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>每席</td>
+                                        <td>5,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>酒水</td>
+                                        <td>500.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>更換椅套</td>
+                                        <td>2,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>琴師</td>
+                                        <td>500.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>魔術表演</td>
+                                        <td>1,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>修飾</td>
+                                        <td>1,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>菜單升級 - 酒席大海斑、沙巴龍躉、如改東星斑需以市場海鮮價值調整價錢.竹笙雙喜生翅或花膠雞絲生翅改海皇燴燕窩</td>
+                                        <td>300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>菜單升級 - 鮑片改原隻鮑魚(12隻)(每席)</td>
+                                        <td>380</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">新來賓</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="background-color: #f5f5dc; padding: 10px;">
+                        <form class="form-inline" role="form">
+                            <div class="row">
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="姓名" />
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="電話" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="電子郵件" />
+                                </div>
+                                <div class="input-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="確認出席" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary btn-sm">是</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="出席人數" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-sm" type="button">-</button>
+                                        <button class="btn btn-primary btn-sm" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div class="input-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="己經邀請" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="button">是</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6" style="margin-bottom: 10px;">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm" placeholder="分類">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">選擇<span class="caret"></span></button>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="#">男家親友</a></li>
+                                                <li><a href="#">男家朋友</a></li>
+                                                <li><a href="#">男家同事</a></li>
+                                                <li><a href="#">男家同學</a></li>
+                                                <li><a href="#">女家親友</a></li>
+                                                <li><a href="#">女家朋友</a></li>
+                                                <li><a href="#">女家同事</a></li>
+                                                <li><a href="#">女家同學</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 form-group">
+                                    <input type="text" class="form-control input-sm" placeholder="桌號" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeModal" type="button" class="btn btn-primary">取消</button>
+                    <button type="button" class="btn btn-primary pull-right">儲存</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+        $().button('toggle');
+        $('#addGuest').click(function () {
+            $('#myModal').modal({ backdrop: 'static' });
+        });
+        $('#closeModal').click(function () {
+            $('#myModal').modal('hide');
+        });
+    });
+</script>

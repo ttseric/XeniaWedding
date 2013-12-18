@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "NewGuest";
+}
+<div class="container">
+    <input type="text" data-bind="value: weddingEventId" />
+    <div class="row" style="padding: 10px;">
+        <form class="form-inline" role="form">
+            <div class="row" style="margin-bottom: 5px;">
+                <div class="col-xs-4 input-group">
+                    <input type="text" id="guestGroup" data-bind="value: newGuest.GuestGroup().Name" class="form-control input-sm" placeholder="分類">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown">選擇<span class="caret"></span></button>
+                        <ul class="dropdown-menu pull-right" data-bind="foreach: guestGroups">
+                            <li><a href="#" data-bind="text: Name, click: $root.selectGroup"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4">
+                    <input type="text" class="form-control input-sm" placeholder="姓名" data-bind="value: newGuest.Name" />
+                </div>
+                <div class="btn-group col-xs-4">
+                    <button type="button" class="btn btn-default" data-bind="click: male, css: { active: newGuest.Sex() == 'M' }">男性</button>
+                    <button type="button" class="btn btn-default" data-bind="click: female, css: { active: newGuest.Sex() == 'F' }">女性</button>
+                </div>
+
+            </div>
+            <div class="row" style="margin-bottom: 5px;">
+                <div class="input-group col-xs-4">
+                    <input type="text" class="form-control input-sm" placeholder="電子郵件" data-bind="value: newGuest.Email" />
+                </div>
+                <div class="form-group col-xs-4">
+                    <input type="text" class="form-control input-sm" placeholder="電話" data-bind="value: newGuest.Phone" />
+                </div>
+
+                <div class="btn-group col-xs-4">
+                    <button type="button" class="btn btn-default" data-bind="click: accept, css: { active: newGuest.Rvsp() == 'accepted' }">出席</button>
+                    <button type="button" class="btn btn-default" data-bind="click: noAnswer, css: { active: newGuest.Rvsp() == 'no answer' }">未回覆</button>
+                    <button type="button" class="btn btn-default" data-bind="click: decline, css: { active: newGuest.Rvsp() == 'declined' }">拒絕</button>
+                </div>
+
+            </div>
+            <div class="row" style="margin-bottom: 5px;">
+                <div class="col-xs-4 form-group">
+                    <input type="text" class="form-control input-sm" placeholder="桌號" data-bind="value: newGuest.Table" />
+                </div>
+                <div class="input-group col-xs-4">
+                    <input type="text" class="form-control input-sm" disabled placeholder="出席人數" data-bind="value: newGuest.HeadCount()" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm" type="button" data-bind="click: $root.decrease">-</button>
+                        <button class="btn btn-default btn-sm" type="button" data-bind="click: $root.increase">+</button>
+                    </span>
+                </div>
+                <div class="col-xs-4 form-group">
+                    <input id="inviteDate" type="text" class="form-control input-sm" placeholder="發出請帖日期" data-bind="value: newGuest.InviteDate" />
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 5px;">
+                <div class="col-xs-12">
+                    <textarea class="form-control" rows="6" placeholder="註備" data-bind="value: newGuest.Remark"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <button class="btn btn-primary" data-bind="click: save">Save</button>
+                    <button class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<script>
+
+    $(document).ready($(function () {
+
+        $("#inviteDate").datepicker({ dateFormat: 'dd/mm/yy' });
+
+    }));
+
+
+</script>
+<script>
+    function GuestGroup(value, text) {
+        var self = this;
+
+        self.Name = text;
+        self.GuestGroupId = value;
+    }
+
+    function NewGuest() {
+        var self = this;
+
+        self.Name = ko.observable();
+        self.Sex = ko.observable();
+        self.Email = ko.observable();
+        self.Phone = ko.observable();
+        self.Rvsp = ko.observable("no answer");
+        self.Table = ko.observable();
+        self.InviteDate = ko.observable();
+        self.HeadCount = ko.observable();
+        self.GuestGroup = ko.observable(new GuestGroup("", ""));
+        self.Remark = ko.observable();
+
+    }
+
+    function NewGuestViewModel() {
+        var self = this;
+
+        self.weddingEventId = 1;
+        self.newGuest = new NewGuest();
+        self.guestGroups = [
+            new GuestGroup("1", "男家親友"),
+            new GuestGroup("2", "男家朋友"),
+            new GuestGroup("3", "男家同事")
+        ];
+
+        self.selectGroup = function (group) {
+            self.newGuest.GuestGroup(new GuestGroup(group.GuestGroupId, group.Name));
+        };
+
+        self.increase = function () {
+            if (typeof self.newGuest.HeadCount() == 'undefined' || self.newGuest.HeadCount() == "")
+                self.newGuest.HeadCount(0);
+
+            self.newGuest.HeadCount(self.newGuest.HeadCount() + 1);
+        };
+
+        self.decrease = function () {
+            if (self.newGuest.HeadCount() > 1)
+                self.newGuest.HeadCount(self.newGuest.HeadCount() - 1);
+            else {
+                self.newGuest.HeadCount("");
+            }
+        };
+
+        self.save = function () {
+            var json = ko.toJSON(self.newGuest);
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "/Guest/Add/",
+                data: { guestJson: json, weddingEventId: self.weddingEventId },
+                success: function (response) {
+                    if (response.success == true)
+                        alert('Saved');
+                    else {
+                        alert('failed \n ' + response.message);
+                    }
+                },
+                error: function (response) { alert('ajax call failure.'); }
+            });
+        };
+
+        self.cancel = function () {
+            self.newGuest = new NewGuest();
+        };
+
+        self.accept = function () {
+            self.newGuest.Rvsp("accepted");
+        };
+
+        self.noAnswer = function () {
+            self.newGuest.Rvsp("no answer");
+        };
+
+        self.decline = function () {
+            self.newGuest.Rvsp("declined");
+        };
+
+        self.male = function () {
+            self.newGuest.Sex("M");
+        };
+
+        self.female = function () {
+            self.newGuest.Sex("F");
+        };
+    }
+
+    ko.applyBindings(new NewGuestViewModel());
+</script>
+
+
+
+
+
+
+
+

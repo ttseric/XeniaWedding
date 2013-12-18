@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <h3>賓客邀請</h3>
+    <div class="container">
+        <div class="row" data-bind="foreach: guestLists()">
+            <div class="col-xs-4">
+                <div class="row">
+                    <h4 data-bind="text: eventTitle"></h4>
+                    <ul class="nav nav-pills">
+                        <li class="active">
+                            <a href="#">
+                                <span class="badge pull-right" data-bind="text: invited"></span>
+                                邀請
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                                <span class="badge pull-right" data-bind="text: accepted"></span>
+                                出席
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                                <span class="badge pull-right" data-bind="text: declined"></span>
+                                拒絕
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="btn-group ">
+                        <button type="button" class="btn btn-default">名單</button>
+                        <button type="button" class="btn btn-default" data-bind="click: addGuest">加入</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="padding: 10px;">
+                    <form class="form-inline" role="form">
+                        <div class="row" style="margin-bottom: 5px;">
+                            <div class="col-xs-4 input-group">
+                                <input type="text" id="guestGroup" data-bind="value: newGuest.GuestGroup().Name" class="form-control input-sm" placeholder="分類">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown">選擇<span class="caret"></span></button>
+                                    <ul class="dropdown-menu pull-right" data-bind="foreach: guestGroups">
+                                        <li><a href="#" data-bind="text: Name, click: $root.selectGroup"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <input type="text" class="form-control input-sm" placeholder="姓名" data-bind="value: newGuest.Name" />
+                            </div>
+                            <div class="btn-group col-xs-4">
+                                <button type="button" class="btn-xs btn btn-default" data-bind="click: male, css: { active: newGuest.Sex() == 'M' }">男性</button>
+                                <button type="button" class="btn-xs btn btn-default" data-bind="click: female, css: { active: newGuest.Sex() == 'F' }">女性</button>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;">
+                            <div class="input-group col-xs-4">
+                                <input type="text" class="form-control input-sm" placeholder="電子郵件" data-bind="value: newGuest.Email" />
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <input type="text" class="form-control input-sm" placeholder="電話" data-bind="value: newGuest.Phone" />
+                            </div>
+
+                            <div class="btn-group col-xs-4">
+                                <button type="button" class="btn btn-xs btn-default" data-bind="click: accept, css: { active: newGuest.Rvsp() == 'accepted' }">出席</button>
+                                <button type="button" class="btn btn-xs btn-default" data-bind="click: noAnswer, css: { active: newGuest.Rvsp() == 'no answer' }">未回覆</button>
+                                <button type="button" class="btn btn-xs btn-default" data-bind="click: decline, css: { active: newGuest.Rvsp() == 'declined' }">拒絕</button>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;">
+                            <div class="col-xs-4 form-group">
+                                <input type="text" class="form-control input-sm" placeholder="桌號" data-bind="value: newGuest.Table" />
+                            </div>
+                            <div class="input-group col-xs-4">
+                                <input type="text" class="form-control input-sm" disabled placeholder="出席人數" data-bind="value: newGuest.HeadCount()" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-sm" type="button" data-bind="click: $root.decrease">-</button>
+                                    <button class="btn btn-default btn-sm" type="button" data-bind="click: $root.increase">+</button>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 form-group">
+                                <input id="inviteDate" type="text" class="form-control input-sm" placeholder="發出請帖日期" data-bind="value: newGuest.InviteDate" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;">
+                            <div class="col-xs-12">
+                                <textarea class="form-control" rows="6" placeholder="註備" data-bind="value: newGuest.Remark"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<script>
+    function GuestList(eventTitle, invited, accepted, declined) {
+        var self = this;
+
+        self.eventTitle = eventTitle;
+        self.invited = invited;
+        self.accepted = accepted;
+        self.declined = declined;
+        self.addGuest = function() {
+            $('#myModal').modal('show');
+        };
+    }
+
+    function GuestListViewModel() {
+        var self = this;
+        self.guestLists = ko.observableArray();
+
+        self.callData = function () {
+            $.post("/Guest/EventList", function (data) {
+                $.each(data, function (index, value) {
+                    self.guestLists.push(new GuestList(value.eventTitle, value.invited, value.accepted, value.declined));
+                });
+            }, "json");
+        };
+
+    }
+
+    var viewModel = new GuestListViewModel();
+    viewModel.callData();
+    ko.applyBindings(viewModel);
+</script>

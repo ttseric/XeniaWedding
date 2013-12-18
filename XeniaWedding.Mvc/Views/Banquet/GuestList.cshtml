@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "GuestList";
+}
+<div class="container">
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-xs-3">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-12  text-center">
+                            <h4>邀請</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12  text-center">
+                            <h5>90</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12 text-center" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>出席</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h5>80</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12 text-center" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>拒絕</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h5>10</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-3">
+            <div class="row" style="padding-right: 15px;">
+                <div class="col-xs-12 text-center" style="background-color: #faebd7; border-radius: 6px;">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>未確定</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h5>10</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4 text-center col-xs-offset-4" style="background-color: #faebd7; border-radius: 6px;">
+            <button type="button"  class="btn btn-primary btn-xs">View List</button>
+            <button type="button" id="addGuest" class="btn btn-primary btn-xs">Add Guests</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">新來賓</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="background-color: #f5f5dc; padding: 10px;">
+                        <form class="form-inline" role="form">
+                            <div class="row">
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="姓名" />
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="電話" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="電子郵件" />
+                                </div>
+                                <div class="input-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="確認出席" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary btn-sm">是</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="出席人數" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-sm" type="button">-</button>
+                                        <button class="btn btn-primary btn-sm" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div class="input-group col-xs-6">
+                                    <input type="text" class="form-control input-sm" placeholder="己經邀請" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="button">是</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6" style="margin-bottom: 10px;">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm" placeholder="分類">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">選擇<span class="caret"></span></button>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="#">男家親友</a></li>
+                                                <li><a href="#">男家朋友</a></li>
+                                                <li><a href="#">男家同事</a></li>
+                                                <li><a href="#">男家同學</a></li>
+                                                <li><a href="#">女家親友</a></li>
+                                                <li><a href="#">女家朋友</a></li>
+                                                <li><a href="#">女家同事</a></li>
+                                                <li><a href="#">女家同學</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 form-group">
+                                    <input type="text" class="form-control input-sm" placeholder="桌號" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeModal" type="button" class="btn btn-primary">取消</button>
+                    <button type="button" class="btn btn-primary pull-right">儲存</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+        $().button('toggle');
+        $('#addGuest').click(function () {
+            $('#myModal').modal({ backdrop: 'static' });
+        });
+        $('#closeModal').click(function () {
+            $('#myModal').modal('hide');
+        });
+    });
+
+</script>

@@ -60,7 +60,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,7 +71,7 @@
       <Name>XeniaWedding.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\XeniaWedding.Data\XeniaWedding.Data.csproj">
-      <Project>{149b3c8b-0464-427f-9fb2-01333651acb4}</Project>
+      <Project>{85b3a59e-857e-40df-9105-bd931551eb63}</Project>
       <Name>XeniaWedding.Data</Name>
     </ProjectReference>
   </ItemGroup>
